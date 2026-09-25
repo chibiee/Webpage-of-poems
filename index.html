@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Her — A Cinematic Sanctuary</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:,">
+</head>
+<body>
+
+    <!-- Initial Envelope Modal -->
+    <div id="start-overlay" class="start-overlay">
+        <div class="start-card">
+            <div class="envelope-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+            <h2>A special gift for Zaira</h2>
+            <p>Turn your volume up for the best experience.</p>
+            <button class="open-btn" onclick="startCinematicExperience()">
+                <i class="fa-solid fa-heart"></i> Open
+            </button>
+        </div>
+    </div>
+
+    <!-- Background Audio -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="musics/Sagip.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Fullscreen Cinematic Intro (Creamy & Slow-Paced) -->
+    <div id="cinematic-intro" class="intro-overlay hidden">
+        <!-- Skip Button (Top Right) -->
+        <button class="skip-btn" onclick="dismissIntro()">
+            Skip Intro <i class="fa-solid fa-forward"></i>
+        </button>
+
+        <div class="intro-content">
+            <!-- Sequence 1: Main Welcome -->
+            <p class="intro-greeting intro-fade intro-delay-1">welcome zaira...</p>
+            <h1 class="intro-subgreeting intro-fade intro-delay-2">this website is for you :))</h1>
+
+            <!-- Line 1 -->
+            <div class="intro-divider animate-intro-line intro-delay-3"></div>
+
+            <!-- Sequence 2: Extended Heartfelt Letter -->
+            <div class="intro-message">
+                <p class="intro-fade intro-delay-4">
+                    I made this little space on the web just for you—a quiet, cozy corner where you can step away from the noise of everything else.
+                </p>
+                <p class="intro-fade intro-delay-5">
+                    Every single line of code, every color, and every small detail here was built thinking of you. You bring so much light into my life, and this is just my small way of giving a piece of that warmth back to you.
+                </p>
+                <p class="intro-fade intro-delay-6">
+                    Take your time exploring. This place holds your daily poems, little reminders of how much you mean to me, and memories that I'll cherish forever.
+                </p>
+            </div>
+
+            <!-- Line 2 -->
+            <div class="intro-divider animate-intro-line intro-delay-7"></div>
+
+            <!-- Sequence 3: Enter Sanctuary Button -->
+            <button class="enter-btn intro-fade intro-delay-8" onclick="dismissIntro()">
+                <i class="fa-solid fa-sparkles"></i> Enter Your Sanctuary
+            </button>
+        </div>
+
+        <!-- Sequence 4: Bottom Captions -->
+        <div class="intro-footer">
+            <span class="footer-left intro-fade intro-delay-8">made by your boyfriend</span>
+            <span class="footer-right intro-fade intro-delay-8">i hope you like it <i class="fa-solid fa-heart"></i></span>
+        </div>
+    </div>
+
+    <!-- Ambient Floating Light Background -->
+    <div class="ambient-background">
+        <div class="glow-orb glow-1"></div>
+        <div class="glow-orb glow-2"></div>
+        <div class="glow-orb glow-3"></div>
+    </div>
+    <div class="film-grain"></div>
+
+    <!-- Sticky Glass Navigation -->
+    <header class="reveal-card card-delay-1">
+        <nav class="glass-card navbar">
+            <div class="brand">
+                <i class="fa-solid fa-dragon"></i>
+                <span>Sanctuary</span>
+            </div>
+            <ul class="nav-links">
+                <li><button class="nav-btn active"><i class="fa-solid fa-house"></i> Home</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Shell -->
+    <!-- Main Content Shell -->
+    <main>
+        <!-- Hero Banner Header -->
+        <section class="glass-card hero-banner reveal-card card-delay-2">
+            <div class="hero-text">
+                <div class="badge">
+                    <i class="fa-solid fa-sparkles"></i> Welcome Back
+                </div>
+                <h1 class="hero-title">Her Personal Haven</h1>
+                <p class="hero-subtitle">A cinematic space built for reading, quiet thoughts, and favorite songs.</p>
+            </div>
+            
+            <!-- Cute Character Mascot Cluster -->
+            <div class="mascot-cluster">
+                <div class="mascot-tag" title="Chiikawa">
+                    <i class="fa-solid fa-paw"></i> Chiikawa
+                </div>
+                <div class="mascot-tag" title="Pusheen">
+                    <i class="fa-solid fa-cat"></i> Pusheen
+                </div>
+                <div class="mascot-tag" title="Dinosaur">
+                    <i class="fa-solid fa-dragon"></i> Dino
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Dates & Milestones Grid -->
+<section class="grid-dashboard">
+    <!-- Birthday Card -->
+    <div class="glass-card stat-card reveal-card card-delay-3">
+        <div class="stat-header">
+            <span>BIRTHDAY</span>
+            <div class="stat-icon"><i class="fa-solid fa-cake-candles"></i></div>
+        </div>
+        <div>
+            <div class="stat-value">April 5</div>
+            <div class="stat-label" id="bdayCountdown">Calculating countdown...</div>
+        </div>
+    </div>
+
+    <!-- Anniversary Card -->
+    <div class="glass-card stat-card reveal-card card-delay-4">
+        <div class="stat-header">
+            <span>ANNIVERSARY</span>
+            <div class="stat-icon"><i class="fa-solid fa-infinity"></i></div>
+        </div>
+        <div>
+            <div class="stat-value">August 22</div>
+            <div class="stat-label" id="anniCountdown">Calculating countdown...</div>
+        </div>
+    </div>
+
+    <!-- Library Quick Count (3rd Card) -->
+    <div class="glass-card stat-card reveal-card card-delay-5">
+        <div class="stat-header">
+            <span>POEM LIBRARY</span>
+            <div class="stat-icon"><i class="fa-solid fa-book-open"></i></div>
+        </div>
+        <div>
+            <div class="stat-value" id="poem-count">0 Poems</div>
+            <div class="stat-label" id="daily-poem-status">Ready to Read</div>
+        </div>
+    </div>
+</section>
+
+        <!-- Main Workspace Area -->
+        <section class="main-workspace reveal-card card-delay-6">
+            <!-- Poem Library Section -->
+            <div class="glass-card workspace-card poem-library-section">
+                <div class="library-header">
+                    <div class="header-title">
+                        <i class="fa-solid fa-feather-pointed"></i>
+                        <h2>Poem Library</h2>
+                    </div>
+                    
+                    <!-- Search & Filter Controls -->
+                    <div class="library-controls">
+                        <div class="search-box" style="position: relative;">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" id="poem-search" placeholder="Search title, keywords, or text..." autocomplete="off">
+    
+                            <!-- Auto-suggest Dropdown -->
+                            <div id="search-dropdown" class="search-dropdown hidden"></div>
+                        </div>
+                        <div class="filter-tags">
+                            <button class="tag-btn active" onclick="filterCategory('daily', this)">Daily Poem</button>
+                            <button class="tag-btn active" onclick="filterCategory('all', this)">All</button>
+                            <button class="tag-btn" onclick="filterCategory('Sweet', this)">Sweet</button>
+                            <button class="tag-btn" onclick="filterCategory('Comfort', this)">Comfort</button>
+                            <button class="tag-btn" onclick="filterCategory('Special', this)">Special</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Poem Cards Grid -->
+                <div id="poem-grid" class="poem-grid">
+                    <!-- Dynamic Cards from JS -->
+                </div>
+            </div>
+
+            <!-- Live Dual Clock Widget -->
+<div class="glass-card workspace-card clock-corner-card">
+    <div class="clock-header">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        <h3>Our Time Zones</h3>
+    </div>
+    
+    <div class="clocks-container">
+        <!-- Halifax Clock -->
+        <div class="clock-box halifax-box">
+            <div class="clock-badge"><i class="fa-solid fa-map-pin"></i> Halifax, Canada</div>
+            <div class="clock-time" id="halifax-time">00:00:00 AM</div>
+            <div class="clock-date" id="halifax-date">Loading date...</div>
+        </div>
+
+        <!-- PH Clock -->
+        <div class="clock-box ph-box">
+            <div class="clock-badge"><i class="fa-solid fa-heart"></i> Philippines</div>
+            <div class="clock-time" id="ph-time">00:00:00 AM</div>
+            <div class="clock-date" id="ph-date">Loading date...</div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- Interactive Pixel Mascot Lounge -->
+<section class="glass-card workspace-card lounge-section reveal-card">
+    <div class="lounge-header">
+        <i class="fa-solid fa-gamepad"></i>
+        <h3>Sanctuary Lounge</h3>
+        <span class="lounge-hint">Tap the mascot!</span>
+    </div>
+
+    <div class="lounge-canvas-container">
+        <canvas id="mascot-canvas" width="400" height="220"></canvas>
+        <div id="mascot-speech" class="speech-bubble hidden">
+            <span id="speech-text">Hello! Welcome to our sanctuary! 💖</span>
+        </div>
+    </div>
+
+    <div class="lounge-controls">
+        <button class="lounge-btn" onclick="triggerMascotAction('bounce')">
+            <i class="fa-solid fa-hand-sparkles"></i> Pat
+        </button>
+        <button class="lounge-btn" onclick="triggerMascotAction('heart')">
+            <i class="fa-solid fa-heart"></i> Love
+        </button>
+        <button class="lounge-btn" onclick="triggerMascotAction('talk')">
+            <i class="fa-solid fa-comment-dots"></i> Talk
+        </button>
+    </div>
+</section>
+
+
+
+        </section>
+    </main>
+
+
+
+    <!-- ==========================================================================
+     OPEN WHEN... VAULT SECTION
+     ========================================================================== -->
+<section class="open-when-vault" id="open-when-section">
+    <div class="vault-header">
+        <span class="vault-badge">Personal Letters</span>
+        <h2>Open When…</h2>
+        <p class="vault-subtitle">For every little moment when you need me.</p>
+        <span class="vault-counter" id="vault-counter">8 little letters waiting for you ♡</span>
+    </div>
+
+    <!-- Mobile-First Responsive Grid -->
+    <div class="vault-grid">
+        <!-- Envelope 1 -->
+        <button class="envelope-card" data-letter="miss" aria-label="Open when you miss me">
+            <div class="envelope-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div class="envelope-content">
+                <h4>Open when you miss me</h4>
+                <span class="card-hint">Tap to open <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+        </button>
+
+        <!-- Envelope 2 -->
+        <button class="envelope-card" data-letter="sleep" aria-label="Open when you can't sleep">
+            <div class="envelope-icon"><i class="fa-solid fa-moon"></i></div>
+            <div class="envelope-content">
+                <h4>Open when you can’t sleep</h4>
+                <span class="card-hint">Tap to open <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+        </button>
+
+        <!-- Envelope 3 -->
+        <button class="envelope-card" data-letter="badDay" aria-label="Open when you're having a bad day">
+            <div class="envelope-icon"><i class="fa-solid fa-cloud-rain"></i></div>
+            <div class="envelope-content">
+                <h4>Open when you’re having a bad day</h4>
+                <span class="card-hint">Tap to open <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+        </button>
+
+        <!-- Envelope 4 -->
+        <button class="envelope-card" data-letter="motivation" aria-label="Open when you need motivation">
+            <div class="envelope-icon"><i class="fa-solid fa-bolt"></i></div>
+            <div class="envelope-content">
+                <h4>Open when you need motivation</h4>
+                <span class="card-hint">Tap to open <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+        </button>
+
+        <!-- Envelope 5 -->
+        <button class="envelope-card" data-letter="laugh" aria-label="Open when you need to laugh">
+            <div class="envelope-icon"><i class="fa-solid fa-face-smile-beam"></i></div>
+            <div class="envelope-content">
+                <h4>Open when you need to laugh</h4>
+                <span class="card-hint">Tap to open <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+        </button>
+
+        <!-- Envelope 6 -->
+        <button class="envelope-card" data-letter="loved" aria-label="Open when you want to feel loved">
+            <div class="envelope-icon"><i class="fa-solid fa-heart"></i></div>
+            <div class="envelope-content">
+                <h4>Open when you want to feel loved</h4>
+                <span class="card-hint">Tap to open <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+        </button>
+
+        <!-- Envelope 7 -->
+        <button class="envelope-card" data-letter="overthinking" aria-label="Open when you're overthinking">
+            <div class="envelope-icon"><i class="fa-solid fa-brain"></i></div>
+            <div class="envelope-content">
+                <h4>Open when you’re overthinking</h4>
+                <span class="card-hint">Tap to open <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+        </button>
+
+        <!-- Envelope 8 -->
+        <button class="envelope-card" data-letter="reminder" aria-label="Open when you need a little reminder">
+            <div class="envelope-icon"><i class="fa-solid fa-sparkles"></i></div>
+            <div class="envelope-content">
+                <h4>Open when you need a little reminder</h4>
+                <span class="card-hint">Tap to open <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+        </button>
+    </div>
+
+    <p class="vault-footer-note">
+        “No matter what kind of day you’re having, there’s always a little piece of me here.”
+    </p>
+
+    <!-- Centered Letter Modal Backdrop -->
+    <div class="vault-modal-overlay" id="vault-modal" aria-hidden="true" role="dialog">
+        <div class="vault-modal-card">
+            <button class="vault-modal-close" id="vault-modal-close" aria-label="Close letter">&times;</button>
+            <div class="vault-modal-header">
+                <span class="modal-badge"><i class="fa-solid fa-envelope-open-text"></i> Personal Letter</span>
+                <h3 id="vault-modal-title">Open When...</h3>
+            </div>
+            <div class="vault-modal-body">
+                <p id="vault-modal-text">...</p>
+            </div>
+            <div class="vault-modal-footer">
+                <button class="vault-modal-btn" id="vault-modal-btn-close">Close Letter</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+    <!-- ==========================================================================
+     CINEMATIC MIDDLE GALLERY BREAK (Full-Width, Edge Blur Overlays)
+     ========================================================================== -->
+<section class="middle-gallery-break">
+    <div class="gallery-header-centered">
+        <i class="fa-solid fa-compass-drafting"></i>
+        <h3>Future Destinations & Memories</h3>
+        <span class="gallery-hint">Auto & Swipe ✦</span>
+    </div>
+
+    <!-- Carousel Wrapper with Side Blurs -->
+    <div class="carousel-wrapper-full">
+        <!-- Side Fade Masks (Edge-to-Edge Blur Illusion) -->
+        <div class="carousel-fade-mask fade-left"></div>
+        <div class="carousel-fade-mask fade-right"></div>
+
+        <button class="carousel-nav prev-btn" id="carousel-prev" aria-label="Previous">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="carousel-track-container" id="carousel-track">
+            <!-- Card 1: Japan -->
+            <div class="carousel-card">
+                <div class="card-image-wrap">
+                    <img src="images/japan.jpg" alt="Kyoto, Japan" loading="lazy">
+                    <span class="card-badge">Future Trip</span>
+                </div>
+                <div class="card-info">
+                    <h4>Japan</h4>
+                    <p>Walking under cherry blossoms and exploring cozy quiet streets together.</p>
+                </div>
+            </div>
+
+            <!-- Card 2: Switzerland -->
+            <div class="carousel-card">
+                <div class="card-image-wrap">
+                    <img src="images/switzerland2.jpg" alt="Swiss Alps" loading="lazy">
+                    <span class="card-badge">Dream Haven</span>
+                </div>
+                <div class="card-info">
+                    <h4>Switzerland</h4>
+                    <p>Cozy wooden cabins, snow-capped mountains, and hot cocoa views.</p>
+                </div>
+            </div>
+
+            <!-- Card 3: Iceland -->
+            <div class="carousel-card">
+                <div class="card-image-wrap">
+                    <img src="images/Iceland.jpg" alt="Northern Lights" loading="lazy">
+                    <span class="card-badge">Bucket List</span>
+                </div>
+                <div class="card-info">
+                    <h4>Iceland</h4>
+                    <p>Stargazing and chasing the breathtaking Northern Lights under the night sky.</p>
+                </div>
+            </div>
+
+            <!-- Card 4: Paris -->
+            <div class="carousel-card">
+                <div class="card-image-wrap">
+                    <img src="images/Canada.jpg" alt="Canada" loading="lazy">
+                    <span class="card-badge">Romantic Getaway</span>
+                </div>
+                <div class="card-info">
+                    <h4>Canada</h4>
+                    <p>Exploring vast wilderness, witnessing stunning northern lights, and enjoying outdoor adventures.</p>
+                </div>
+            </div>
+
+            <!-- Card 5: Thailand -->
+            <div class="carousel-card">
+                <div class="card-image-wrap">
+                    <img src="images/Thailand.jpg" alt="Thailand Islands" loading="lazy">
+                    <span class="card-badge">Island Escape</span>
+                </div>
+                <div class="card-info">
+                    <h4>Thailand</h4>
+                    <p>Relaxing on warm turquoise waters and peaceful beach sunsets.</p>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-nav next-btn" id="carousel-next" aria-label="Next">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- Dynamic Mobile Scroll Dots -->
+    <div class="carousel-dots-centered" id="carousel-dots"></div>
+</section>
+
+
+
+
+
+    <!-- Fullscreen Poem Reader Modal -->
+    <div id="poem-modal" class="poem-modal hidden">
+        <div class="poem-modal-content glass-card">
+            <button class="close-modal-btn" onclick="closePoemModal()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="modal-body">
+                <span id="modal-category" class="badge">Category</span>
+                <h1 id="modal-title" class="modal-title">Poem Title</h1>
+                <div class="modal-divider"></div>
+                <div id="modal-text" class="modal-text">
+                    <!-- Full poem text here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- External JavaScript Engine -->
+    <script src="script.js"></script>
+    <script src="gallery.js"></script>
+    <script src="poem.js"></script>
+    <script src="clock.js"></script>
+    <script src="mascot.js"></script>
+    <script src="vault.js"></script>
+</body>
+</html>
